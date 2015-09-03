@@ -1,0 +1,200 @@
+html {
+  box-sizing: border-box; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+body {
+  margin: 5px; }
+
+.container {
+  max-width: 965px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 480px) {
+    .container {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto; }
+      .container::after {
+        clear: both;
+        content: "";
+        display: table; } }
+
+header {
+  width: 100%;
+  position: relative;
+  height: 300px; }
+  @media screen and (max-width: 480px) {
+    header {
+      height: 250px; } }
+
+.header-wrapper {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 91.4702%;
+  margin-left: 4.2649%;
+  position: relative;
+  height: 300px; }
+  .header-wrapper:last-child {
+    margin-right: 0; }
+
+.logo-wrapper {
+  height: 12.5em;
+  width: 12.5em;
+  position: absolute;
+  top: 50%;
+  left: 238px;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background-color: #23393b; }
+  @media screen and (max-width: 480px) {
+    .logo-wrapper {
+      height: 6.25em;
+      width: 6.25em;
+      top: 25%;
+      left: 50%; } }
+
+.logo {
+  height: 9.375em;
+  width: 9.375em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: invert(100%); }
+  @media screen and (max-width: 480px) {
+    .logo {
+      height: 4.6875em;
+      width: 4.6875em; } }
+
+.logo-text {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  position: absolute;
+  top: 50%;
+  left: 345px;
+  transform: translateY(-50%);
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #50848b;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 4em; }
+  .logo-text:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 480px) {
+    .logo-text {
+      float: left;
+      display: block;
+      margin-right: 5.85151%;
+      width: 100%;
+      margin-left: 0%;
+      top: auto;
+      bottom: 0;
+      transform: none;
+      text-align: center;
+      font-size: 3em; }
+      .logo-text:last-child {
+        margin-right: 0; } }
+
+.subtitile {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+  text-align: center; }
+  .subtitile:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 480px) {
+    .subtitile {
+      float: left;
+      display: block;
+      margin-right: 5.85151%;
+      width: 78.8297%;
+      margin-left: 10.58515%; }
+      .subtitile:last-child {
+        margin-right: 0; } }
+
+.image-wrapper {
+  width: 100%;
+  padding: 0; }
+  .image-wrapper::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.images {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  position: relative;
+  height: 200px;
+  overflow: hidden; }
+  .images:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 480px) {
+    .images {
+      float: left;
+      display: block;
+      margin-right: 5.85151%;
+      width: 100%;
+      margin-bottom: 0.625em; }
+      .images:last-child {
+        margin-right: 0; } }
+
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  min-height: 200px; }
+  @media screen and (max-width: 480px) {
+    .image {
+      width: 100%;
+      height: auto; } }
+
+.article-wrapper {
+  width: 100%; }
+  .article-wrapper::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 480px) {
+    .article-wrapper {
+      height: 0;
+      overflow: hidden; } }
+
+.article {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; }
+  .article:last-child {
+    margin-right: 0; }
+
+.contact-wrapper,
+.contact-text,
+.contact-phone,
+.contact-email {
+  width: 100%;
+  text-align: center; }
+
+footer {
+  width: 100%;
+  text-align: center; }
