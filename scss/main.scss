@@ -2,21 +2,63 @@
 @import '../bower_components/neat/app/assets/stylesheets/neat';
 
 // ---------------Colors--------------------- //
-$logo: rgba(35, 57, 59, 1);
+$logo: rgba(57, 92, 96, 1);
 $logo-text: rgba(80, 132, 139, 1);
+$highlight: white;
+$background: rgba(56, 72, 107, 1);
+$text: white;
+$outline: black;
+$accent1: rgba(95, 71, 48, 1);
+$accent2: rgba(154, 115, 78, 1);
 
 // -------------Breakpoints--------------- //
 $mobile: new-breakpoint(max-width 480px 5);
 
+// ----------------Global Rules--------------- //
+hr {
+  @include span-columns(6);
+  @include shift(3);
+
+  @include media($mobile) {
+    @include span-columns(4.5);
+    @include shift(.25);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
 
 // -----------------Body Margin-------------- //
 body {
   margin: 5px;
+  // background: url('../assets/dirt-road.jpeg') center center no-repeat fixed;
+  // background-size: cover;
+
+  // text-shadow: 1px 1px 0 $outline,
+  // -1px -1px 0 $outline,
+  // 1px -1px 0 $outline,
+  // -1px 1px 0 $outline,
+  // 0 1px 0 $outline,
+  // 1px 0 0 $outline,
+  // 0 -1px 0 $outline,
+  // -1px 0 0 $outline;
+  color: $accent2;
 }
 
 // --------------Overall Container----------- //
 .container {
   @include outer-container(965px);
+  @include clearfix;
 
   @include media($mobile) {
     @include outer-container(480px);
@@ -27,6 +69,7 @@ body {
 header {
   @include fill-parent();
   position: relative;
+
   height: 300px;
 
   @include media($mobile) {
@@ -35,21 +78,35 @@ header {
 }
 
 .header-wrapper {
-  @include span-columns(11);
-  @include shift(.5);
+  @include fill-parent();
+  @include clearfix;
 
   position: relative;
 
+  border: 3px solid $accent2;
+  border-radius: 5px;
+
+  background-color: $background;
+
+
   height: 300px;
+
+  @include media($mobile) {
+    @include fill-parent();
+    @include shift(0);
+
+    height: 250px;
+  }
 }
 
 .logo-wrapper {
   @include size(em(200) em(200));
   position: absolute;
   top: 50%;
-  left: 238px;
+  left: 210px;
   transform: translate(-50%, -50%);
 
+  border: 2px solid $accent2;
   border-radius: 100%;
   background-color: $logo;
 
@@ -88,28 +145,61 @@ header {
   margin-bottom: 0;
 
   text-transform: uppercase;
+  text-shadow: none;
   color: $logo-text;
-  font-family: $helvetica;
+  font-family: "Montserrat", sans-serif;
   font-size: 4em;
 
   @include media($mobile) {
     @include span-columns(5);
     @include shift(0);
 
-    // position: relative;
+    position: absolute;
     top: auto;
-    bottom: 0;
-    transform: none;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
 
     text-align: center;
     font-size: 3em;
   }
 }
 
+.logo-text > span {
+  color: $highlight;
+}
+
+// -----------------Nav-Bar--------------- //
+.nav-bar {
+  @include fill-parent();
+}
+
+.nav-links {
+  @include span-columns(3);
+}
+
+.nav-link {
+  @include fill-parent();
+
+  border: 3px solid $accent2;
+  border-radius: 5px;
+  background-color: $background;
+
+  height: 50px;
+
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 50px;
+  color: $highlight;
+}
+
 // ------------------Subtitle---------------- //
 .subtitile {
   @include span-columns(6);
   @include shift(3);
+  @include clearfix;
+  margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
 
   @include media($mobile) {
@@ -123,12 +213,18 @@ header {
   @include fill-parent();
   @include clearfix;
 
+
+
   padding: 0;
 }
 
 .images {
   @include span-columns(4);
   position: relative;
+
+  margin-top: em(50);
+  margin-bottom: em(50);
+
   height: 200px;
   overflow: hidden;
 
@@ -144,13 +240,13 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100%;
+  width: 100%;
   min-height: 200px;
 
-  @include media($mobile) {
-    width: 100%;
-    height: auto;
-  }
+  // @include media($mobile) {
+  //   width: auto;
+  //   height: 100%;
+  // }
 }
 
 // -------------------Article--------------------- //
