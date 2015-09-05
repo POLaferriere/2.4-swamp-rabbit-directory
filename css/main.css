@@ -63,7 +63,7 @@ body {
 header {
   width: 100%;
   position: relative;
-  height: 300px; }
+  height: 500px; }
   @media screen and (max-width: 480px) {
     header {
       height: 250px; } }
@@ -73,8 +73,9 @@ header {
   position: relative;
   border: 3px solid #9a734e;
   border-radius: 5px;
-  background-color: #38486b;
-  height: 300px; }
+  background: url("../assets/woods.jpeg") center center no-repeat;
+  background-size: cover;
+  height: 500px; }
   .header-wrapper::after {
     clear: both;
     content: "";
@@ -94,7 +95,7 @@ header {
   transform: translate(-50%, -50%);
   border: 2px solid #9a734e;
   border-radius: 100%;
-  background-color: #395c60; }
+  background-color: #27290e; }
   @media screen and (max-width: 480px) {
     .logo-wrapper {
       height: 6.25em;
@@ -128,9 +129,9 @@ header {
   margin-bottom: 0;
   text-transform: uppercase;
   text-shadow: none;
-  color: #50848b;
+  color: #1c260d;
   font-family: "Montserrat", sans-serif;
-  font-size: 4em; }
+  font-size: 5em; }
   .logo-text:last-child {
     margin-right: 0; }
   @media screen and (max-width: 480px) {
@@ -154,26 +155,42 @@ header {
   color: white; }
 
 .nav-bar {
-  width: 100%; }
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-top: 5px;
+  border: 3px solid #9a734e;
+  border-radius: 5px;
+  background-color: #4a4e1e; }
+  .nav-bar:last-child {
+    margin-right: 0; }
+  .nav-bar::after {
+    clear: both;
+    content: "";
+    display: table; }
 
 .nav-links {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%; }
+  width: 23.23176%;
+  padding: 2.35765%; }
   .nav-links:last-child {
     margin-right: 0; }
 
 .nav-link {
   width: 100%;
-  border: 3px solid #9a734e;
-  border-radius: 5px;
-  background-color: #38486b;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
   height: 50px;
   text-align: center;
   text-transform: uppercase;
   line-height: 50px;
   color: white; }
+
+.subtitle-wrapper {
+  width: 100%; }
 
 .subtitile {
   float: left;
@@ -181,15 +198,13 @@ header {
   margin-right: 2.35765%;
   width: 48.82117%;
   margin-left: 25.58941%;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  position: relative;
+  border: 3px solid #9a734e;
+  background: #4a4e1e;
+  padding: 40px;
   text-align: center; }
   .subtitile:last-child {
     margin-right: 0; }
-  .subtitile::after {
-    clear: both;
-    content: "";
-    display: table; }
   @media screen and (max-width: 480px) {
     .subtitile {
       float: left;
@@ -202,6 +217,9 @@ header {
 
 .image-wrapper {
   width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
   padding: 0; }
   .image-wrapper::after {
     clear: both;
@@ -209,34 +227,26 @@ header {
     display: table; }
 
 .images {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
+  display: table-cell;
+  width: 33.33333%;
+  padding: 2.35765%;
   position: relative;
   margin-top: 3.125em;
   margin-bottom: 3.125em;
-  height: 200px;
+  height: 280px;
   overflow: hidden; }
-  .images:last-child {
-    margin-right: 0; }
   @media screen and (max-width: 480px) {
     .images {
-      float: left;
-      display: block;
-      margin-right: 5.85151%;
+      display: table-cell;
       width: 100%;
-      margin-bottom: 0.625em; }
-      .images:last-child {
-        margin-right: 0; } }
+      margin-bottom: 0.625em; } }
 
 .image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  min-height: 200px; }
+  transform: scale(1.5, 1.5) translate(-50%, -50%);
+  height: 100%; }
 
 .article-wrapper {
   width: 100%; }
@@ -250,15 +260,11 @@ header {
       overflow: hidden; } }
 
 .article {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 82.94039%;
+  display: table-cell;
+  width: 83.33333%;
   margin-left: 8.5298%;
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; }
-  .article:last-child {
-    margin-right: 0; }
 
 .contact-wrapper,
 .contact-text,

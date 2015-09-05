@@ -2,10 +2,10 @@
 @import '../bower_components/neat/app/assets/stylesheets/neat';
 
 // ---------------Colors--------------------- //
-$logo: rgba(57, 92, 96, 1);
-$logo-text: rgba(80, 132, 139, 1);
+$logo: #27290e;
+$logo-text: #1c260d;
 $highlight: white;
-$background: rgba(56, 72, 107, 1);
+$background: #4a4e1e;
 $text: white;
 $outline: black;
 $accent1: rgba(95, 71, 48, 1);
@@ -70,7 +70,7 @@ header {
   @include fill-parent();
   position: relative;
 
-  height: 300px;
+  height: 500px;
 
   @include media($mobile) {
     height: 250px;
@@ -86,10 +86,10 @@ header {
   border: 3px solid $accent2;
   border-radius: 5px;
 
-  background-color: $background;
+  background: url('../assets/woods.jpeg') center center no-repeat;
+  background-size: cover;
 
-
-  height: 300px;
+  height: 500px;
 
   @include media($mobile) {
     @include fill-parent();
@@ -148,7 +148,7 @@ header {
   text-shadow: none;
   color: $logo-text;
   font-family: "Montserrat", sans-serif;
-  font-size: 4em;
+  font-size: 5em;
 
   @include media($mobile) {
     @include span-columns(5);
@@ -171,19 +171,24 @@ header {
 
 // -----------------Nav-Bar--------------- //
 .nav-bar {
-  @include fill-parent();
+  @include span-columns(12);
+  @include clearfix;
+  margin-top: 5px;
+  border: 3px solid $accent2;
+  border-radius: 5px;
+  background-color: $background;
 }
 
 .nav-links {
   @include span-columns(3);
+  @include pad();
 }
 
 .nav-link {
   @include fill-parent();
 
-  border: 3px solid $accent2;
-  border-radius: 5px;
-  background-color: $background;
+  border-right: 1px solid $highlight;
+  border-left: 1px solid $highlight;
 
   height: 50px;
 
@@ -194,12 +199,22 @@ header {
 }
 
 // ------------------Subtitle---------------- //
+.subtitle-wrapper {
+  @include fill-parent();
+}
+
 .subtitile {
   @include span-columns(6);
   @include shift(3);
-  @include clearfix;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
+  position: relative;
+
+  border: 3px solid $accent2;
+
+  background: $background;
+
+  padding: 40px;
+
   text-align: center;
 
   @include media($mobile) {
@@ -211,6 +226,7 @@ header {
 // ------------------Images Row/Stack-------------- //
 .image-wrapper {
   @include fill-parent();
+  @include row(table);
   @include clearfix;
 
 
@@ -220,12 +236,13 @@ header {
 
 .images {
   @include span-columns(4);
+  @include pad();
   position: relative;
 
   margin-top: em(50);
   margin-bottom: em(50);
 
-  height: 200px;
+  height: 280px;
   overflow: hidden;
 
   @include media($mobile) {
@@ -239,9 +256,9 @@ header {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  min-height: 200px;
+  transform: scale(1.5, 1.5) translate(-50%, -50%);
+  height: 100%;
+  // min-height: 200px;
 
   // @include media($mobile) {
   //   width: auto;
