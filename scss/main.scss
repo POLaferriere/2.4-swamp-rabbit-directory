@@ -5,11 +5,15 @@
 $logo: #27290e;
 $logo-text: #1c260d;
 $highlight: white;
-$background: #4a4e1e;
+$background: #36471b;
 $text: white;
 $outline: black;
 $accent1: rgba(95, 71, 48, 1);
 $accent2: rgba(154, 115, 78, 1);
+$facebook: rgba(68, 88, 151, 1);
+$twitter: rgba(106, 141, 199, 1);
+$youtube: rgba(178, 56, 45, 1);
+$nav-overlay: rgba(255, 255, 255, .1);
 
 // -------------Breakpoints--------------- //
 $mobile: new-breakpoint(max-width 480px 5);
@@ -41,8 +45,8 @@ ul {
 // -----------------Body Margin-------------- //
 body {
   margin: 5px;
-  // background: url('../assets/dirt-road.jpeg') center center no-repeat fixed;
-  // background-size: cover;
+  background: url('../assets/dirt-road.jpeg') center center no-repeat fixed;
+  background-size: cover;
 
   // text-shadow: 1px 1px 0 $outline,
   // -1px -1px 0 $outline,
@@ -52,7 +56,7 @@ body {
   // 1px 0 0 $outline,
   // 0 -1px 0 $outline,
   // -1px 0 0 $outline;
-  color: $accent2;
+  color: $text;
 }
 
 // --------------Overall Container----------- //
@@ -60,11 +64,67 @@ body {
   @include outer-container(965px);
   @include clearfix;
 
+
   @include media($mobile) {
     @include outer-container(480px);
   }
 }
 
+// ----------------Social Buttons---------------- //
+.social-buttons-wrapper {
+  @include clearfix;
+
+  @include media($mobile) {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.social-buttons {
+  position: relative;
+  float: right;
+  padding: 0;
+  height: 65px;
+}
+
+.social-button {
+  display: inline-block;
+  margin: 0 3px;
+  border-radius: 3px;
+  width: 65px;
+  height: 65px;
+  list-style: none;
+  text-align: center;
+  line-height: 65px;
+  font-size: 2.5em;
+}
+
+.social-button:hover .fa {
+  transition: all .5s ease-in-out;
+  opacity: 1;
+}
+
+.facebook {
+  position: relative;
+  background-color: $facebook;
+}
+
+.twitter {
+  background-color: $twitter;
+}
+
+.youtube {
+  background-color: $youtube;
+}
+
+.fa {
+  transition: all .25s ease-in-out;
+
+  opacity: .3;
+  color: $text;
+
+}
 // ---------------Header------------------ //
 header {
   @include fill-parent();
@@ -170,6 +230,33 @@ header {
 }
 
 // -----------------Nav-Bar--------------- //
+.nav-bar-wrapper {
+  @include media($mobile) {
+    @include span-columns(5);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.hamburger {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+
+  font-size: em(40px);
+
+  @include media($mobile) {
+    top: 10px;
+    left: 10px;
+    height: auto;
+  }
+}
+
+.fa-bars {
+  opacity: 1;
+}
+
 .nav-bar {
   @include span-columns(12);
   @include clearfix;
@@ -177,15 +264,30 @@ header {
   border: 3px solid $accent2;
   border-radius: 5px;
   background-color: $background;
+
+  @include media($mobile) {
+    @include span-columns(4.5);
+    @include shift(.5);
+    position: absolute;
+    border: 0;
+    height: 0;
+    overflow: hidden;
+  }
 }
 
 .nav-links {
   @include span-columns(3);
   @include pad();
+
+  @include media($mobile) {
+    @include span-columns(4.5 of 4.5);
+  }
 }
 
 .nav-link {
   @include fill-parent();
+
+  position: relative;
 
   border-right: 1px solid $highlight;
   border-left: 1px solid $highlight;
@@ -198,18 +300,69 @@ header {
   color: $highlight;
 }
 
+.nav-link::after {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 50%;
+  transition: all .5s ease-in-out;
+  background-color: transparent;
+  content: '';
+}
+
+.nav-link:hover::after {
+  right: 0;
+  left: 0;
+  transition: all .5s ease-in-out;
+  background-color: $nav-overlay;
+}
+
+.nav-bar-wrapper:hover .nav-bar {
+  height: auto;
+}
+
+
+// ----------------Main Container---------------- //
+.main-container {
+  @include fill-parent();
+  @include clearfix;
+
+  margin-top: 110px;
+  border: 3px solid $accent2;
+  border-radius: 5px;
+
+  background-color: $background;
+
+  letter-spacing: 1px;
+  font-family: "Open Sans", $helvetica;
+  font-weight: 400;
+
+  @include media($mobile) {
+    margin-top: 40px;
+  }
+}
+
 // ------------------Subtitle---------------- //
 .subtitle-wrapper {
-  @include fill-parent();
+  @include span-columns(11);
+  @include shift(.5);
+
+  padding-top: 10px;
+
+  height: 300px;
+
+  @include media($mobile) {
+    @include span-columns(5);
+    @include shift(0);
+    height: 220px;
+
+  }
 }
 
 .subtitile {
-  @include span-columns(6);
-  @include shift(3);
-
+  @include span-columns(5.5 of 11);
   position: relative;
-
-  border: 3px solid $accent2;
 
   background: $background;
 
@@ -218,20 +371,36 @@ header {
   text-align: center;
 
   @include media($mobile) {
-    @include span-columns(4);
+    @include span-columns(4 of 5);
     @include shift(.5);
+
+    padding: 20px;
   }
 }
 
+.subtitle-image {
+  @include span-columns(5.5 of 11);
+
+  border: 3px solid $accent2;
+  border-radius: 5px;
+
+  @include media($mobile) {
+    border: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
 // ------------------Images Row/Stack-------------- //
 .image-wrapper {
-  @include fill-parent();
-  @include row(table);
   @include clearfix;
+  height: 0;
 
+  overflow: hidden;
 
-
-  padding: 0;
+  @include media($mobile) {
+    @include span-columns(5);
+    height: auto;
+  }
 }
 
 .images {
@@ -247,7 +416,7 @@ header {
 
   @include media($mobile) {
     @include span-columns(5);
-
+    margin-top: 0;
     margin-bottom: em(10);
   }
 }
@@ -260,15 +429,16 @@ header {
   height: 100%;
   // min-height: 200px;
 
-  // @include media($mobile) {
-  //   width: auto;
-  //   height: 100%;
-  // }
+  @include media($mobile) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 // -------------------Article--------------------- //
 .article-wrapper {
-  @include fill-parent();
+  @include span-columns(11);
+  @include shift(.5);
   @include clearfix;
 
   @include media($mobile) {
@@ -277,12 +447,27 @@ header {
   }
 }
 
+.article-image {
+  @include span-columns(5.5 of 11);
+
+  border: 3px solid $accent2;
+  border-radius: 5px;
+}
+
 .article {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(5.5 of 11);
+  position: relative;
+
+  height: 260px;
 
   text-align: center;
-  font-family: $helvetica;
+  font-family: "Open Sans", $helvetica;
+}
+
+.article-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 // ------------------Contact Us Section---------------- //
@@ -290,14 +475,74 @@ header {
 .contact-text,
 .contact-phone,
 .contact-email {
-  @include fill-parent();
+  @include span-columns(12 of 12);
 
   text-align: center;
 }
 
+.contact-wrapper {
+  padding-top: 20px;
+}
+
+.contact-social-buttons-wrapper {
+  @include span-columns(6 of 12);
+  @include shift(3);
+  text-align: center;
+}
+
+.contact-social-buttons {
+  padding: 0;
+  height: 65px;
+}
+
+.contact-social-button {
+  display: inline-block;
+  margin: 0 3px;
+  border-radius: 2px;
+  width: 40px;
+  height: 40px;
+  list-style: none;
+  text-align: center;
+  line-height: 40px;
+  font-size: 2em;
+}
+
+.contact-social-button:hover .fa {
+  transition: all .5s ease-in-out;
+  opacity: 1;
+}
+
+// ---------------------Footer Image---------------- //
+.footer-image {
+  @include fill-parent();
+  @include clearfix;
+
+  position: relative;
+
+  margin-top: 5px;
+
+  border: 3px solid $accent2;
+  border-radius: 5px;
+
+  background: url('../assets/dirt-path.jpg') center center no-repeat;
+  background-size: cover;
+
+  height: 200px;
+
+  @include media($mobile) {
+    @include fill-parent();
+    @include shift(0);
+
+    height: 100px;
+  }
+}
 // ----------------------Footer----------------- //
 footer {
   @include fill-parent();
-
+  margin-top: 5px;
+  border: 3px solid $accent2;
+  border-radius: 5px;
+  background-color: $background;
   text-align: center;
+  font-size: em(12px);
 }
